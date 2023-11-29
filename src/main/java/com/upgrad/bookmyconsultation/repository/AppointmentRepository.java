@@ -1,6 +1,5 @@
 package com.upgrad.bookmyconsultation.repository;
 
-
 import com.upgrad.bookmyconsultation.entity.Appointment;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -13,5 +12,4 @@ public interface AppointmentRepository extends CrudRepository<Appointment, Strin
 	public List<Appointment> findByUserId(String userId);
 
 	public Appointment findByDoctorIdAndTimeSlotAndAppointmentDate(String doctorId, String timeSlot, String appointmentDate);
-
 }
