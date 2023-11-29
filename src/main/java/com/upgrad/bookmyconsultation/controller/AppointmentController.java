@@ -20,23 +20,26 @@ public class AppointmentController {
 	@Autowired
 	private AppointmentService appointmentService;
 
-
-	//create a method post method named bookAppointment with return type ReponseEntity
-		//method has paramter of type Appointment, use RequestBody Annotation for mapping
-	
+	//create a method post method named bookAppointment with return type ResponseEntity
+	//method has parameter of type Appointment, use RequestBody Annotation for mapping
+	@PostMapping
+	public ResponseEntity<String> bookAppointment(
+			@RequestBody Appointment appointment
+	) throws SlotUnavailableException, InvalidInputException {
 		//save the appointment details to the database and save the response from the method used
 		//return http response using ResponseEntity
-	
-	
-	
-	
+		return ResponseEntity.ok(appointmentService.appointment(appointment));
+	}
+
 	//create a get method named getAppointment with return type as ResponseEntity
-		//method has appointmentId of type String. Use PathVariable annotation to identity appointment using the parameter defined
-		
+	//method has appointmentId of type String. Use PathVariable annotation to identity appointment using the parameter defined
+	@GetMapping("/{appointmentId}")
+	public ResponseEntity<Appointment> getAppointment(
+			@PathVariable(value = "appointmentId", required = true) String appointmentId
+	) throws InvalidInputException {
 		//get the appointment details using the appointmentId
 		//save the response
-		//return the response as an http response
-	
-	
-
+		//return the response as a http response
+		return ResponseEntity.ok(appointmentService.getAppointment(appointmentId));
+	}
 }
