@@ -44,6 +44,4 @@ public class AuthenticationController {
 		final BearerAuthDecoder authDecoder = new BearerAuthDecoder(authorization);
 		authTokenService.invalidateToken(authDecoder.getAccessToken());
 	}
-
-
 }

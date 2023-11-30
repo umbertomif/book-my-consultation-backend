@@ -1,6 +1,5 @@
 package com.upgrad.bookmyconsultation.service;
 
-
 import com.upgrad.bookmyconsultation.entity.User;
 import com.upgrad.bookmyconsultation.exception.InvalidInputException;
 import com.upgrad.bookmyconsultation.exception.ResourceUnAvailableException;
@@ -23,10 +22,8 @@ public class UserService {
 	@Autowired
 	private PasswordCryptographyProvider passwordCryptographyProvider;
 
-
 	public User register(User user) throws InvalidInputException {
 		ValidationUtils.validate(user);
-
 		user.setCreatedDate(LocalDate.now().toString());
 		encryptPassword(user);
 		userRepository.save(user);
