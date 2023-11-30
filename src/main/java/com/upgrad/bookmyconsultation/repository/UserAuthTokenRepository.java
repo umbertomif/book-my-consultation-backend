@@ -12,5 +12,4 @@ public interface UserAuthTokenRepository extends CrudRepository<UserAuthToken, S
 	UserAuthToken findByUserEmailId(@NotNull String userId);
 
 	UserAuthToken findByAccessToken(String token);
-
 }
