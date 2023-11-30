@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 //mark it as repository
 //create an interface AddressRepository that extends CrudRepository
 @Repository
-public interface AddressRepository extends CrudRepository<Address, String> {
-
-}
+public interface AddressRepository extends CrudRepository<Address, String> { }

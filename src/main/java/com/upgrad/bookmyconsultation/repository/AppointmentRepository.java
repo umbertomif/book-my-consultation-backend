@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface AppointmentRepository extends CrudRepository<Appointment, String> {
 
-	public List<Appointment> findByUserId(String userId);
+	List<Appointment> findByUserId(String userId);
 
-	public Appointment findByDoctorIdAndTimeSlotAndAppointmentDate(String doctorId, String timeSlot, String appointmentDate);
+	Appointment findByDoctorIdAndTimeSlotAndAppointmentDate(String doctorId, String timeSlot, String appointmentDate);
 }
