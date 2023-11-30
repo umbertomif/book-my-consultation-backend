@@ -30,27 +30,23 @@ public class AppointmentService {
 	//create a method name appointment with the return type of String and parameter of type Appointment
 	//declare exceptions 'SlotUnavailableException' and 'InvalidInputException'
 	public String appointment(Appointment appointment) throws SlotUnavailableException, InvalidInputException {
-		try {
-			//validate the appointment details using the validate method from ValidationUtils class
-			ValidationUtils.validate(appointment);
-			//find if an appointment exists with the same doctor for the same date and time
-			Appointment optionalAppointment = appointmentRepository.findByDoctorIdAndTimeSlotAndAppointmentDate(
-					appointment.getDoctorId(),
-					appointment.getTimeSlot(),
-					appointment.getAppointmentDate()
-			);
-			//if the appointment exists throw the SlotUnavailableException
-			if (optionalAppointment != null) {
-				throw new SlotUnavailableException();
-			}
-			//save the appointment details to the database
-			appointment.setCreatedDate(LocalDate.now().toString());
-			appointmentRepository.save(appointment);
-			//return the appointment id
-			return appointment.getAppointmentId();
-		} catch (InvalidInputException error) {
-			throw new InvalidInputException();
+		//validate the appointment details using the validate method from ValidationUtils class
+		ValidationUtils.validate(appointment);
+		//find if an appointment exists with the same doctor for the same date and time
+		Appointment optionalAppointment = appointmentRepository.findByDoctorIdAndTimeSlotAndAppointmentDate(
+				appointment.getDoctorId(),
+				appointment.getTimeSlot(),
+				appointment.getAppointmentDate()
+		);
+		//if the appointment exists throw the SlotUnavailableException
+		if (optionalAppointment != null) {
+			throw new SlotUnavailableException();
 		}
+		//save the appointment details to the database
+		appointment.setCreatedDate(LocalDate.now().toString());
+		appointmentRepository.save(appointment);
+		//return the appointment id
+		return appointment.getAppointmentId();
 	}
 
 	//create a method getAppointment of type Appointment with a parameter name appointmentId of type String

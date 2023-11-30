@@ -21,7 +21,6 @@ public final class UserAuthTokenVerifier {
 	private final UserAuthTokenStatus status;
 
 	public UserAuthTokenVerifier(final UserAuthToken userAuthToken) {
-
 		if (userAuthToken == null) {
 			status = UserAuthTokenStatus.NOT_FOUND;
 		} else if (isLoggedOut(userAuthToken)) {
@@ -61,5 +60,4 @@ public final class UserAuthTokenVerifier {
 	private boolean isLoggedOut(final UserAuthToken userAuthToken) {
 		return userAuthToken != null && userAuthToken.getLogoutAt() != null;
 	}
-
 }

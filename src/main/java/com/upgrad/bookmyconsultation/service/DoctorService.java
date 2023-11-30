@@ -31,7 +31,6 @@ public class DoctorService {
 	@Autowired
 	private AddressRepository addressRepository;
 
-	
 	//create a method register with return type and parameter of typeDoctor
 	//declare InvalidInputException for the method
 		//validate the doctor details
@@ -44,14 +43,12 @@ public class DoctorService {
 		//Set the address in the doctor object with the response
 		//save the doctor object to the database
 		//return the doctor object
-	
-	
+
 	//create a method name getDoctor that returns object of type Doctor and has a String paramter called id
 		//find the doctor by id
 		//if doctor is found return the doctor
 		//else throw ResourceUnAvailableException
 
-	
 
 	public List<Doctor> getAllDoctorsWithFilters(String speciality) {
 
@@ -71,7 +68,6 @@ public class DoctorService {
 	}
 
 	public TimeSlot getTimeSlots(String doctorId, String date) {
-
 		TimeSlot timeSlot = new TimeSlot(doctorId, date);
 		timeSlot.setTimeSlot(timeSlot.getTimeSlot()
 				.stream()
@@ -83,6 +79,5 @@ public class DoctorService {
 				.collect(Collectors.toList()));
 
 		return timeSlot;
-
 	}
 }

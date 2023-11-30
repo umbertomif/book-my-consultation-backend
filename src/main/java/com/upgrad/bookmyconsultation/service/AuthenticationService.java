@@ -51,8 +51,6 @@ public class AuthenticationService {
 		}
 		UserAuthToken userAuthToken = authTokenService.issueToken(user);
 		return authorizedUser(user, userAuthToken);
-
-
 	}
 
 	private AuthorizedUser authorizedUser(final User user, final UserAuthToken userAuthToken) {
@@ -65,5 +63,4 @@ public class AuthenticationService {
 		authorizedUser.setAccessToken(userAuthToken.getAccessToken());
 		return authorizedUser;
 	}
-
 }
