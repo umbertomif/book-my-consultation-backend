@@ -12,5 +12,5 @@ import java.util.List;
 public interface RatingsRepository extends CrudRepository<Rating, String> {
     //create a method findByDoctorId that returns a list of type Rating
     //define method parameter doctorId of type String
-    public List<Rating> findByDoctorId(String doctorId);
+    List<Rating> findByDoctorId(String doctorId);
 }
